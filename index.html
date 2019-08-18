@@ -1,0 +1,776 @@
+<!DOCTYPE HTML>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US" class="ie ie6 lt-ie9">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US" class="ie ie7 lt-ie9">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US" class="ie ie8 lt-ie9">
+<![endif]-->
+<!--[if gte IE 9]>
+<html lang="en-US" class="ie ie9">
+<![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en-US" class="">
+<!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0 minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="marcolago">
+
+    <meta name="description" content="Flowtime.js is an open source framework for easily build HTML presentations or websites. It’s built with web standards in mind and on top of a solid full page grid layout powered by CSS3 hardware accelerated transition and comes with a complete set of Javascript API for deep customization.">
+
+    <title>JPA Entity Relationship</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="css/flowtime.css">
+    <link rel="stylesheet" href="css/themes/default.css">
+    <link rel="stylesheet" href="css/custom-backgrounds.css">
+    <link rel="stylesheet" href="css/themes/code.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
+    <style type="text/css">
+        table { 
+          border: solid thin; 
+          border-collapse: collapse; 
+        }
+        table caption { 
+          padding-bottom: 0.5em; 
+        }
+        table th, 
+        table td { 
+          font-size: 1.75rem;
+          border: solid thin;
+          padding: 0.5rem 0.5rem;
+        }
+        table td {
+          white-space: nowrap;
+        }
+        table th { 
+          font-weight: normal; 
+        }
+        table th { 
+          padding: 0.2em; 
+          vertical-align: middle; 
+          text-align: center; 
+        }
+
+        table tbody td:first-child::after { 
+          content: leader(". "); '
+        }
+    </style>
+</head>
+<body class="">
+    <div class="flowtime">
+        <div class="ft-section">
+            <div class="ft-page">
+                <h1>Java Platform, Enterprise Edition:<br> <a href="https://docs.oracle.com/javaee/7/tutorial/index.html" target="_blank">The Java EE Tutorial</a></h1>
+
+                <p>Part VIII explores the <a href="https://docs.oracle.com/javaee/7/tutorial/partpersist.htm" target="_blank">Java Persistence API</a>. This part contains the following chapters:</p>
+                <ul>
+                    <li>Chapter 37, "Introduction to the Java Persistence API"
+                        <ul>
+                            <li>37.1, Entities
+                                <ul>
+                                    <li>37.1.4, Multiplicity in Entity Relationships</li>
+                                    <li>37.1.5, Direction in Entity Relationships</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Chapter 38, "Running the Persistence Examples"</li>
+                    <li>Chapter 39, "The Java Persistence Query Language"</li>
+                    <li>Chapter 40, "Using the Criteria API to Create Queries"</li>
+                    <li>Chapter 41, "Creating and Using String-Based Criteria Queries"</li>
+                    <li>Chapter 42, "Controlling Concurrent Access to Entity Data with Locking"</li>
+                    <li>Chapter 43, "Creating Fetch Plans with Entity Graphs"</li>
+                    <li>Chapter 44, "Using a Second-Level Cache with Java Persistence API Applications"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ft-section">
+            <div class="ft-page">
+                <h1>Example: The order Application</h1>
+                <img src="img/order.svg">
+            </div>
+        </div>
+        <div class="ft-section">
+            <div class="ft-page">
+                <h1>37.1.4 Multiplicity in Entity Relationships</h1>
+                <p>Multiplicities are of the following types.</p>
+                <ul>
+                    <li>One-to-one</li>
+                    <li>One-to-many</li>
+                    <li>Many-to-one</li>
+                    <li>Many-to-many</li>
+                </ul>
+            </div>
+            <div class="ft-page">
+                <h2>One-to-one</h2>
+                <p>Each entity instance is related to a single instance of another entity.</p>
+                <!-- <p>For example, to model a physical warehouse in which each storage bin contains a single widget, StorageBin and Widget would have a one-to-one relationship.</p> -->
+                <p>One-to-one relationships use the <strong>javax.persistence.OneToOne</strong> annotation on the corresponding persistent property or field.</p>
+                <img src="img/customer_profile.svg">
+            </div>
+            <div class="ft-page">
+                <h2>One-to-many</h2>
+                <p>An entity instance can be related to multiple instances of the other entities.</p>
+                <!-- <p>A sales order, for example, can have multiple line items. In the order application, CustomerOrder would have a one-to-many relationship with LineItem.</p> -->
+                <p>One-to-many relationships use the <strong>javax.persistence.OneToMany</strong> annotation on the corresponding persistent property or field.</p>
+                <img src="img/customer_order_line_item.svg">
+            </div>
+            <div class="ft-page">
+                <h2>Many-to-one</h2>
+                <p>Multiple instances of an entity can be related to a single instance of the other entity.</p>
+                <p>This multiplicity is the opposite of a one-to-many relationship. In the example just mentioned, the relationship to <strong>CustomerOrder</strong> from the perspective of <strong>LineItem</strong> is many-to-one.</p>
+                <p>Many-to-one relationships use the <strong>javax.persistence.ManyToOne</strong> annotation on the corresponding persistent property or field.</p>
+            </div>
+            <div class="ft-page">
+                <h2>Many-to-many</h2>
+                <p>The entity instances can be related to multiple instances of each other.</p>
+                <!-- <p>For example, each college course has many students, and every student may take several courses. Therefore, in an enrollment application, <strong>Course</strong> and <strong>Student</strong> would have a many-to-many relationship.</p> -->
+                <p>Many-to-many relationships use the <strong>javax.persistence.ManyToMany</strong> annotation on the corresponding persistent property or field.</p>
+                <img src="img/product_tag.svg">
+            </div>
+        </div>
+        <div class="ft-section">
+            <div class="ft-page">
+                <h1>37.1.5 Direction in Entity Relationships</h1>
+                <p>The direction of a relationship can be either <strong>bidirectional</strong> or <strong>unidirectional</strong>.</p>
+                <p>A bidirectional relationship has both an owning side and an inverse side.</p>
+                <p>A unidirectional relationship has only an owning side.</p>
+                <p>The owning side of a relationship determines how the Persistence runtime makes updates to the relationship in the database.</p>
+            </div>
+
+            <div class="ft-page">
+                <h2>Bidirectional Relationships</h2>
+                <p>In a <strong>bidirectional</strong> relationship, each entity has a relationship field or property that refers to the other entity. Through the relationship field or property, an entity class's code can access its related object. If an entity has a related field, the entity is said to "know" about its related object.</p>
+                <p>For example, if <strong>CustomerOrder</strong> knows what <strong>LineItem</strong> instances it has and if <strong>LineItem</strong> knows what <strong>CustomerOrder</strong> it belongs to, they have a bidirectional relationship.</p>
+            </div>
+            <div class="ft-page">
+                <p>Bidirectional relationships must follow these rules.</p>
+                <ul>
+                    <li>The inverse side of a bidirectional relationship must refer to its owning side by using the <strong>mappedBy</strong> element of the <strong>@OneToOne</strong>, <strong>@OneToMany</strong>, or <strong>@ManyToMany</strong> annotation. The <strong>mappedBy</strong> element designates the property or field in the entity that is the owner of the relationship.</li>
+
+                    <li>The many side of many-to-one bidirectional relationships must not define the <strong>mappedBy</strong> element. The many side is always the owning side of the relationship.</li>
+
+                    <li>For one-to-one bidirectional relationships, the owning side corresponds to the side that contains the corresponding foreign key.</li>
+
+                    <li>For many-to-many bidirectional relationships, either side may be the owning side.</li>
+                </ul>
+            </div>
+            <div class="ft-page">
+                <h2>Unidirectional Relationships</h2>
+                <p>In a <strong>unidirectional</strong> relationship, only one entity has a relationship field or property that refers to the other.</p>
+                <p>For example, <strong>LineItem</strong> would have a relationship field that identifies <strong>Product</strong>, but <strong>Product</strong> would not have a relationship field or property for <strong>LineItem</strong>. In other words, <strong>LineItem</strong> knows about <strong>Product</strong>, but <strong>Product</strong> doesn't know which <strong>LineItem</strong> instances refer to it.</p>
+            </div>
+        </div>
+        <div class="ft-section">
+            <div class="ft-page">
+                <img src="img/order.svg">
+                <table class="ft-table">
+                    <tr>
+                        <th></th>
+                        <th>Bidirection</th>
+                        <th>Unidirection</th>
+                    </tr>
+                    <tr>
+                        <th>One(owner)-to-one</th>
+                        <td rowspan="2">Profile <-> Customer</td>
+                        <td>Profile -> Customer</td>
+                    </tr>
+                    <tr>
+                        <th>One(inverse)-to-one</th>
+                        <td>Customer -> Profile</td>
+                    </tr>
+                    <tr>
+                        <th>One(inverse)-to-many</th>
+                        <td rowspan="2">CustomerOrder <-> LineItem</td>
+                        <td>CustomerOrder -> LineItem</td>
+                    </tr>
+                    <tr>
+                        <th>Many(owner)-to-one</th>
+                        <td>LineItem -> CustomerOrder</td>
+                    </tr>
+                    <tr>
+                        <th>Many-to-many</th>
+                        <td>Product <-> Tag</td>
+                        <td>Product -> Tag</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Profile <-> Customer -->
+        <div class="ft-section">
+            <div class="ft-page">
+                <h3>Bidirectional One-to-one <strong>Profile <-> Customer</strong></h3>
+                <img src="img/customer_profile.svg">
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+public class Profile {
+
+    @Id
+    @Column(name = &quot;customer_id&quot;)
+    private long customerId;
+
+    @Column(name = &quot;street_number&quot;)
+    private String streetNumber;
+
+    @Column(name = &quot;street_name&quot;)
+    private String streetName;
+
+    private String district;
+
+    private String city;
+
+    @MapsId
+    @OneToOne
+    private Customer customer;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String name;
+
+    private String email;
+
+    @Column(name = &quot;created_date&quot;)
+    private Date createdDate;
+
+    @OneToOne(mappedBy = &quot;customer&quot;)
+    private Profile profile;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <!-- Profile -> Customer -->
+        <div class="ft-section">
+            <div class="ft-page">
+                <h2>One(owner)-to-one <strong>Profile -> Customer</strong></h2>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+public class Profile {
+
+    @Id
+    @Column(name = &quot;customer_id&quot;)
+    private long customerId;
+
+    @Column(name = &quot;street_number&quot;)
+    private String streetNumber;
+
+    @Column(name = &quot;street_name&quot;)
+    private String streetName;
+
+    private String district;
+
+    private String city;
+
+    @MapsId
+    @OneToOne
+    private Customer customer;
+
+    // Getters and Setters
+}                        
+                    </code>
+                </pre>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String name;
+
+    private String email;
+
+    @Column(name = &quot;created_date&quot;)
+    private Date createdDate;
+
+    // @OneToOne(mappedBy = &quot;customer&quot;)
+    // private Profile profile;
+
+    // Getters and Setters
+}                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <!-- Customer -> Profile -->
+        <div class="ft-section">
+            <div class="ft-page">
+                <h3>One(inverse)-to-one <strong>Customer -> Profile</strong></h3>
+            </div>
+        </div>
+        <!-- CustomerOrder <-> LineItem -->
+        <div class="ft-section">
+            <div class="ft-page">
+                <h3>Bidirectional One-to-many <strong>CustomerOrder <-> LineItem</strong></h3>
+                <img src="img/customer_order_line_item.svg">
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Embeddable
+public class LineItemKey implements Serializable { // must be serializable.
+
+    @Column(name = &quot;order_id&quot;)
+    private long orderId;
+
+    @Column(name = &quot;product_id&quot;)
+    private long productId;
+
+    public LineItemKey() {
+    }
+
+    // Getters and Setter
+
+    // must implement the equals() and hashcode()
+}                        
+                    </code>
+                </pre>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+@Table(name = &quot;line_item&quot;)
+public class LineItem {
+
+    @EmbeddedId
+    private LineItemKey lineItemKey;
+
+    private int quantity;
+
+    @Column(name = &quot;item_price&quot;)
+    private BigDecimal itemPrice;
+
+    @Column(name = &quot;sub_total&quot;)
+    private BigDecimal subTotal;
+
+    @ManyToOne
+    @MapsId(&quot;orderId&quot;)
+    private CustomerOrder order;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+@Table(name = &quot;customer_order&quot;)
+public class CustomerOrder {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private BigDecimal discount;
+
+    @Column(name = &quot;created_date&quot;)
+    private Date createdDate;
+
+    @Column(name = &quot;last_modified&quot;)
+    private Date lastModified;
+
+    private int status;
+
+    @OneToMany(mappedBy = &quot;order&quot;)
+    private List&lt;LineItem&gt; items;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <!-- CustomerOrder -> LineItem -->
+        <div class="ft-section">
+            <div class="ft-page">
+                <h3>One(inverse)-to-many <strong>CustomerOrder -> LineItem</strong></h3>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Embeddable
+public class LineItemKey implements Serializable { // must be serializable.
+
+    @Column(name = &quot;order_id&quot;)
+    private long orderId;
+
+    @Column(name = &quot;product_id&quot;)
+    private long productId;
+
+    public LineItemKey() {
+    }
+
+    // Getters and Setter
+
+    // must implement the equals() and hashcode()
+}                        
+                    </code>
+                </pre>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+@Table(name = &quot;line_item&quot;)
+public class LineItem {
+
+    @EmbeddedId
+    private LineItemKey lineItemKey;
+
+    private int quantity;
+
+    @Column(name = &quot;item_price&quot;)
+    private BigDecimal itemPrice;
+
+    @Column(name = &quot;sub_total&quot;)
+    private BigDecimal subTotal;
+
+    // @ManyToOne
+    // @MapsId(&quot;orderId&quot;)
+    // private CustomerOrder order;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+@Table(name = &quot;customer_order&quot;)
+public class CustomerOrder {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private BigDecimal discount;
+
+    @Column(name = &quot;created_date&quot;)
+    private Date createdDate;
+
+    @Column(name = &quot;last_modified&quot;)
+    private Date lastModified;
+
+    private int status;
+
+    @OneToMany
+    @JoinColumn(name = &quot;order_id&quot;)
+    private List&lt;LineItem&gt; items;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <!-- LineItem -> CustomerOrder -->
+        <div class="ft-section">
+            <div class="ft-page">
+                <h3>Many(owner)-to-one <strong>LineItem -> CustomerOrder</strong></h3>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Embeddable
+public class LineItemKey implements Serializable { // must be serializable.
+
+    @Column(name = &quot;order_id&quot;)
+    private long orderId;
+
+    @Column(name = &quot;product_id&quot;)
+    private long productId;
+
+    public LineItemKey() {
+    }
+
+    // Getters and Setter
+
+    // must implement the equals() and hashcode()
+}                        
+                    </code>
+                </pre>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+@Table(name = &quot;line_item&quot;)
+public class LineItem {
+
+    @EmbeddedId
+    private LineItemKey lineItemKey;
+
+    private int quantity;
+
+    @Column(name = &quot;item_price&quot;)
+    private BigDecimal itemPrice;
+
+    @Column(name = &quot;sub_total&quot;)
+    private BigDecimal subTotal;
+
+    @ManyToOne
+    @MapsId(&quot;orderId&quot;)
+    private CustomerOrder order;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+@Table(name = &quot;customer_order&quot;)
+public class CustomerOrder {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private BigDecimal discount;
+
+    @Column(name = &quot;created_date&quot;)
+    private Date createdDate;
+
+    @Column(name = &quot;last_modified&quot;)
+    private Date lastModified;
+
+    private int status;
+
+    // @OneToMany
+    // @JoinColumn(name = &quot;order_id&quot;)
+    // private List&lt;LineItem&gt; items;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <!-- Product <-> Tag -->
+        <div class="ft-section">
+            <div class="ft-page">
+                <h3>Bidirectional Many-to-many <strong>Product <-> Tag</strong></h3>
+                <img src="img/product_tag.svg">
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String name;
+
+    private String description;
+
+    private BigDecimal price;
+
+    @ManyToMany
+    @JoinTable(name = &quot;product_tag&quot;,
+            joinColumns = @JoinColumn(name = &quot;product_id&quot;),
+            inverseJoinColumns = @JoinColumn(name = &quot;tag_id&quot;)
+    )
+    private List&lt;Tag&gt; tags;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+public class Tag {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String name;
+
+    @ManyToMany(mappedBy = &quot;tags&quot;)
+    private List&lt;Product&gt; products;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <!-- Product -> Tag -->
+        <div class="ft-section">
+            <div class="ft-page">
+                <h3>Many-to-many <strong>Product -> Tag</strong></h3>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String name;
+
+    private String description;
+
+    private BigDecimal price;
+
+    @ManyToMany
+    @JoinTable(name = &quot;product_tag&quot;,
+            joinColumns = @JoinColumn(name = &quot;product_id&quot;),
+            inverseJoinColumns = @JoinColumn(name = &quot;tag_id&quot;)
+    )
+    private List&lt;Tag&gt; tags;
+
+    // Getters and Setters
+}
+                    </code>
+                </pre>
+            </div>
+            <div class="ft-page">
+                <pre>
+                    <code class="language-java">
+@Entity
+public class Tag {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String name;
+
+    // @ManyToMany(mappedBy = &quot;tags&quot;)
+    // private List&lt;Product&gt; products;
+
+    // Getters Setters
+}
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <div class="ft-section">
+            <div class="ft-page">
+                <h2>Queries and Relationship Direction</h2>
+                <p>Java Persistence query language and Criteria API queries often navigate across relationships.</p>
+                <p>The direction of a relationship determines whether a query can navigate from one entity to another.</p>
+                <p>For example, a query can navigate from LineItem to Product but cannot navigate in the opposite direction. For CustomerOrder and LineItem, a query could navigate in both directions because these two entities have a bidirectional relationship.</p>
+            </div>
+
+            <div class="ft-page">
+                <h2>Cascade Operations and Relationships</h2>
+                <p>Entities that use relationships often have dependencies on the existence of the other entity in the relationship.</p>
+                <p>For example, a line item is part of an order; if the order is deleted, the line item also should be deleted. This is called a cascade delete relationship.</p>
+                <p>The <strong>javax.persistence.CascadeType</strong> enumerated type defines the cascade operations that are applied in the cascade element of the relationship annotations.</p>
+            </div>
+            <div class="ft-page">
+                <p>Cascade Operations for Entities</p>
+                <dl>
+                    <dt><strong>ALL</strong></dt>
+                    <dd>All cascade operations will be applied to the parent entity's related entity. <strong>All</strong> is equivalent to specifying <code>cascade={DETACH, MERGE, PERSIST, REFRESH, REMOVE}</code></dd>
+
+                    <dt><strong>DETACH</strong></td>
+                    <dd>If the parent entity is detached from the persistence context, the related entity will also be detached.</dd>
+
+                    <dt><strong>MERGE</strong></td>
+                    <dd>If the parent entity is merged into the persistence context, the related entity will also be merged.</dd>
+
+                    <dt><strong>PERSIST</strong></dt>
+                    <dd>If the parent entity is persisted into the persistence context, the related entity will also be persisted.</p>
+
+                    <dt><strong>REFRESH</strong></dt>
+                    <dd>If the parent entity is refreshed in the current persistence context, the related entity will also be refreshed.</dd>
+
+                    <dt><strong>REMOVE</strong></dt>
+                    <dd>If the parent entity is removed from the current persistence context, the related entity will also be removed.</dd>
+                </dl>
+            </div>
+
+            <div class="ft-page">
+                <h2>Orphan Removal in Relationships</h2>
+                <p>When a target entity in a one-to-one or one-to-many relationship is removed from the relationship, it is often desirable to cascade the remove operation to the target entity. Such target entities are considered "orphans," and the <strong>orphanRemoval</strong> attribute can be used to specify that orphaned entities should be removed. For example, if an order has many line items and one of them is removed from the order, the removed line item is considered an orphan. If <strong>orphanRemoval</strong> is set to <strong>true</strong>, the line item entity will be deleted when the line item is removed from the order.</p>
+                <p>The <strong>orphanRemoval</strong> attribute in <strong>@OneToMany</strong> and <strong>@oneToOne</strong> takes a Boolean value and is by default false.</p>
+                <pre><code class="language-java">
+@OneToMany(mappedBy=&quot;customer&quot;, orphanRemoval=&quot;true&quot;)
+public List&lt;CustomerOrder&gt; getOrders() { ... }
+                </code></pre>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/brav1toolbox.js"></script>
+    <script src="js/flowtime.js"></script>
+    <script src="assets/js/prism.js"></script>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1228618-10']);
+        _gaq.push(['_trackPageview']);
+        _gaq.push(['_trackEvent', 'Flowtime', 'Landing', document.title]);
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        //
+        //
+        // Configuration API test
+        Flowtime.showProgress(true);
+        // Flowtime.fragmentsOnSide(true);
+        // Flowtime.fragmentsOnBack(true);
+        // Flowtime.useHistory(false);
+        // Flowtime.slideInPx(true);
+        // Flowtime.sectionsSlideToTop(true);
+        // Flowtime.gridNavigation(false);
+        // Flowtime.useOverviewVariant(true);
+        // Flowtime.parallaxInPx(true);
+
+        // starts the application with configuration options
+        Flowtime.start();
+    </script>
+    
+    <script>
+     // custom code here
+    </script>
+</body>
+</html>
