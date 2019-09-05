@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>jpa</groupId>
+    <artifactId>relationship</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>uni-one(owner)-to-one</module>
+        <module>uni-one(inverse)-to-one</module>
+        <module>uni-one(inverse)-to-many</module>
+        <module>uni-many(owner)-to-one</module>
+        <module>uni-many-to-many</module>
+        <module>bi-one-to-one</module>
+        <module>bi-one-to-many</module>
+        <module>bi-many-to-many</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

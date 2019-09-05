@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="many-many-bi" transaction-type="RESOURCE_LOCAL">
+        <class>many.many.bi.Product</class>
+        <class>many.many.bi.Tag</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/order"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="toor"/>
+            <!--<property name="hibernate.show_sql" value="true" />-->
+            <!--<property name="hibernate.format_sql" value="true"/>-->
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="one-many-bi" transaction-type="RESOURCE_LOCAL">
+        <class>one.many.bi.CustomerOrder</class>
+        <class>one.many.bi.LineItemKey</class>
+        <class>one.many.bi.LineItem</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/order"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="toor"/>
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="one-one-bi" transaction-type="RESOURCE_LOCAL">
+        <class>one.one.bi.Customer</class>
+        <class>one.one.bi.Profile</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/order"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="toor"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="many-many-uni" transaction-type="RESOURCE_LOCAL">
+        <class>many.many.uni.Product</class>
+        <class>many.many.uni.Tag</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/order"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="toor"/>
+            <!--<property name="hibernate.show_sql" value="true" />-->
+            <!--<property name="hibernate.format_sql" value="true"/>-->
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="many-one-owner" transaction-type="RESOURCE_LOCAL">
+        <class>many.one.owner.CustomerOrder</class>
+        <class>many.one.owner.LineItemKey</class>
+        <class>many.one.owner.LineItem</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/order"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="toor"/>
+            <!--<property name="hibernate.show_sql" value="true" />-->
+            <!--<property name="hibernate.format_sql" value="true"/>-->
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="one-many-inverse" transaction-type="RESOURCE_LOCAL">
+        <class>one.many.inverse.CustomerOrder</class>
+        <class>one.many.inverse.LineItemKey</class>
+        <class>one.many.inverse.LineItem</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/order"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="toor"/>
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="one-one-inverse" transaction-type="RESOURCE_LOCAL">
+        <class>one.one.inverse.Customer</class>
+        <class>one.one.inverse.Profile</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/order"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="toor"/>
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="one-one-owner" transaction-type="RESOURCE_LOCAL">
+        <class>one.one.owner.Customer</class>
+        <class>one.one.owner.Profile</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/order"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="toor"/>
+        </properties>
+    </persistence-unit>
+</persistence>
